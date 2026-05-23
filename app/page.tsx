@@ -3,26 +3,18 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 
-export default function Home() {
+type ProjectKey = "tourism" | "rainfall";
 
- const [activeProject, setActiveProject] = useState<string | null>(null);
+export default function Home() {
+  const [activeProject, setActiveProject] = useState<ProjectKey | null>(null);
 
   const skills = [
-    {
-      name: "Java",
-      items: ["OOPs", "Collections", "Spring Boot", "Basics"]
-    },
-    {
-      name: "React",
-      items: ["Hooks", "Components", "State Management"]
-    },
-    {
-      name: "SQL",
-      items: ["Queries", "Joins", "CRUD Operations"]
-    }
+    { name: "Java", items: ["OOPs", "Collections", "Spring Boot", "Basics"] },
+    { name: "React", items: ["Hooks", "Components", "State Management"] },
+    { name: "SQL", items: ["Queries", "Joins", "CRUD Operations"] },
   ];
 
-  const projectDetails = {
+  const projectDetails: Record<ProjectKey, string> = {
     tourism: `
 Project: Tourism Guide
 
@@ -30,8 +22,8 @@ Approach:
 - Understood user travel requirements
 - Designed UI using React components
 - Built backend using Java + Spring Boot
-- Integrated APIs using REST
-- Focused on scalable structure and clean UI
+- Integrated REST APIs
+- Focused on clean & scalable architecture
     `,
     rainfall: `
 Project: Rainfall Prediction
@@ -42,13 +34,13 @@ Approach:
 - Used Random Forest algorithm
 - Trained ML model
 - Improved accuracy using tuning
-    `
+    `,
   };
 
   return (
     <main className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory bg-black text-white">
 
-      {/* ================= HERO ================= */}
+      {/* HERO */}
       <section className="h-screen snap-start flex flex-col md:flex-row items-center justify-between px-6 md:px-20">
 
         <motion.div
@@ -57,8 +49,6 @@ Approach:
           transition={{ duration: 0.8 }}
           className="flex-1"
         >
-
-          {/* OPEN TO WORK BADGE */}
           <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-400 text-green-400 px-4 py-1 rounded-full mb-4">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
             Open to Work
@@ -73,40 +63,31 @@ Approach:
           </p>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            JayaSiddharth Boya
+            Jayasiddharth Boya
           </h1>
 
           <p className="text-gray-300 max-w-xl mb-8 leading-7">
-            Computer Science Engineering student focused on building scalable real-world applications using Java, React, SQL, and Spring Boot.
+            Computer Science Engineering student passionate about building scalable applications.
           </p>
 
-          {/* HIRE ME BUTTON */}
           <div className="flex gap-4 flex-wrap">
             <a
-              className="bg-green-500 text-black px-6 py-3 rounded-full font-semibold hover:opacity-80 transition"
+              className="bg-green-500 text-black px-6 py-3 rounded-full font-semibold"
               href="#contact"
             >
               Hire Me
             </a>
 
             <a
-              className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:opacity-80 transition"
+              className="bg-white text-black px-6 py-3 rounded-full font-semibold"
               href="/resume.pdf"
               download
             >
               Download Resume
             </a>
-
-            <a
-              className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition"
-              href="#skills"
-            >
-              View Skills
-            </a>
           </div>
         </motion.div>
 
-        {/* VIDEO */}
         <div className="flex-1 flex justify-center mt-10 md:mt-0">
           <video
             className="w-[320px] md:w-[420px] rounded-2xl border border-white/10"
@@ -116,10 +97,9 @@ Approach:
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
         </div>
-
       </section>
 
-      {/* ================= ABOUT ================= */}
+      {/* ABOUT */}
       <section className="h-screen snap-start flex flex-col justify-center items-center text-center px-6 bg-zinc-950">
 
         <h2 className="text-4xl font-bold mb-6">About Me</h2>
@@ -127,11 +107,11 @@ Approach:
         <div className="max-w-3xl bg-zinc-900 border border-white/10 rounded-2xl p-8">
 
           <p className="text-gray-300 leading-8 mb-4">
-            I am a Computer Science student passionate about full-stack development and real-world problem solving.
+            I am a Computer Science student passionate about full-stack development and real-world applications.
           </p>
 
           <p className="text-gray-400 leading-7 mb-4">
-            I build backend systems using Java & Spring Boot and interactive UIs using React.
+            I build web apps using Java, Spring Boot, React, and SQL.
           </p>
 
           <p className="text-green-400 text-sm">
@@ -142,12 +122,10 @@ Approach:
 
       </section>
 
-      {/* ================= SKILLS (UPDATED FORMAT) ================= */}
-      <section id="skills" className="h-screen snap-start flex flex-col justify-center px-6 md:px-20">
+      {/* SKILLS */}
+      <section className="h-screen snap-start flex flex-col justify-center px-6 md:px-20">
 
-        <h2 className="text-4xl font-bold text-center mb-10">
-          Skills
-        </h2>
+        <h2 className="text-4xl font-bold text-center mb-10">Skills</h2>
 
         <div className="max-w-3xl mx-auto w-full space-y-6">
 
@@ -173,24 +151,17 @@ Approach:
         </div>
       </section>
 
-      {/* ================= PROJECTS ================= */}
+      {/* PROJECTS */}
       <section className="h-screen snap-start flex flex-col justify-center px-6 md:px-20 bg-zinc-950">
 
-        <h2 className="text-4xl font-bold text-center mb-10">
-          Projects
-        </h2>
+        <h2 className="text-4xl font-bold text-center mb-10">Projects</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
 
-          {/* PROJECT 1 */}
           <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
-
-            <img src="/project1.png" className="rounded-lg mb-4" />
+            <img src="/project1.png" alt="tourism" className="rounded-lg mb-4" />
 
             <h3 className="text-xl font-semibold mb-2">Tourism Guide</h3>
-            <p className="text-gray-400 mb-4">
-              Travel planning system using React + Java backend.
-            </p>
 
             <button
               onClick={() => setActiveProject("tourism")}
@@ -198,18 +169,12 @@ Approach:
             >
               How I Built This →
             </button>
-
           </div>
 
-          {/* PROJECT 2 */}
           <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
-
-            <img src="/project2.png" className="rounded-lg mb-4" />
+            <img src="/project2.png" alt="rainfall" className="rounded-lg mb-4" />
 
             <h3 className="text-xl font-semibold mb-2">Rainfall Prediction</h3>
-            <p className="text-gray-400 mb-4">
-              ML model using Random Forest algorithm.
-            </p>
 
             <button
               onClick={() => setActiveProject("rainfall")}
@@ -217,14 +182,12 @@ Approach:
             >
               How I Built This →
             </button>
-
           </div>
 
         </div>
-
       </section>
 
-      {/* ================= MODAL ================= */}
+      {/* MODAL */}
       {activeProject && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6">
 
@@ -246,7 +209,7 @@ Approach:
         </div>
       )}
 
-      {/* ================= CONTACT ================= */}
+      {/* CONTACT */}
       <section id="contact" className="h-screen snap-start flex flex-col justify-center items-center text-center px-6">
 
         <h2 className="text-4xl font-bold mb-10">Contact</h2>
