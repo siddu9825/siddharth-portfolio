@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export default function Home() {
 
-  const [activeProject, setActiveProject] = useState(null);
+ const [activeProject, setActiveProject] = useState<string | null>(null);
 
   const skills = [
     {
