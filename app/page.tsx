@@ -3,26 +3,39 @@ export default function Home() {
     <main className="bg-black text-white">
 
       {/* HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-between px-10 overflow-hidden">
+      <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-10 py-20">
 
         {/* LEFT CONTENT */}
-        <div className="flex-1 z-10">
+        <div className="flex-1">
 
-          <p className="text-gray-400 text-lg mb-3">
-            Computer Science Graduate
+          <p className="text-green-400 text-sm mb-2 tracking-wide">
+            Available for Internship / Full-Time Roles
           </p>
 
-          <h1 className="text-6xl font-bold mb-6 leading-tight">
+          <p className="text-gray-400 text-lg mb-3">
+            Software Developer | Computer Science Engineer
+          </p>
+
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
             Jayasiddharth <br /> Boya
           </h1>
 
-          <p className="text-gray-300 text-xl max-w-xl leading-8 mb-8">
-            Passionate about Java, SQL, Web Technologies,
-            and building modern IT solutions.
+          <p className="text-gray-300 text-lg md:text-xl max-w-xl mb-8 leading-7">
+            I am a software developer specializing in Java, SQL, and modern web technologies.
+            I build clean, scalable, and user-focused applications.
           </p>
 
-          {/* CONTACT BUTTON */}
-          <div className="flex gap-4">
+          {/* BUTTONS */}
+          <div className="flex gap-4 flex-wrap">
+
+            {/* RESUME DOWNLOAD */}
+            <a
+              href="/resume.pdf"
+              download
+              className="bg-white text-black px-6 py-3 rounded-full hover:opacity-80 transition"
+            >
+              ⬇ Download Resume
+            </a>
 
             <a
               href="#contact"
@@ -35,18 +48,17 @@ export default function Home() {
 
         </div>
 
-        {/* VIDEO SECTION */}
-        <div className="flex-1 flex justify-center z-10">
+        {/* RIGHT VIDEO */}
+        <div className="flex-1 flex justify-center mt-10 md:mt-0">
 
-          <div className="w-[420px] h-[650px] rounded-[40px] overflow-hidden shadow-2xl border border-white/10">
+          <div className="w-[320px] md:w-[420px] h-[500px] md:h-[650px] rounded-3xl overflow-hidden border border-white/10">
 
             <video
-              id="heroVideo"
-              controls
-              playsInline
               className="w-full h-full object-cover"
+              controls
             >
               <source src="/hero-video.mp4" type="video/mp4" />
+              Your browser does not support video.
             </video>
 
           </div>
@@ -55,70 +67,96 @@ export default function Home() {
 
       </section>
 
-      {/* ABOUT SECTION */}
-      <section className="min-h-screen bg-zinc-950 flex flex-col items-center justify-center text-center px-10">
+      {/* ABOUT */}
+      <section className="min-h-screen bg-zinc-950 flex flex-col justify-center items-center text-center px-10">
 
-        <h2 className="text-5xl font-bold mb-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-6">
           About Me
         </h2>
 
-        <p className="text-gray-400 text-xl max-w-3xl leading-9">
-          I am a Computer Science graduate passionate about
-          Java, SQL, frontend technologies, and modern web development.
-          I enjoy solving problems and continuously learning new technologies.
+        <p className="text-gray-400 max-w-3xl text-lg leading-8">
+          I am a Computer Science graduate passionate about building real-world applications using Java,
+          SQL, and modern web technologies like React and Next.js.
         </p>
 
       </section>
 
-      {/* SKILLS SECTION */}
+      {/* SKILLS */}
       <section className="min-h-screen bg-black flex flex-col justify-center px-10">
 
-        <h2 className="text-5xl font-bold mb-12 text-center">
+        <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">
           Skills
         </h2>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
 
-          <div className="bg-zinc-900 p-8 rounded-3xl">
+          <div className="bg-zinc-900 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold mb-3">Programming</h3>
+            <p className="text-gray-400">Java, SQL, JavaScript</p>
+          </div>
 
-            <h3 className="text-2xl font-semibold mb-4">
-              Programming
+          <div className="bg-zinc-900 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold mb-3">Web</h3>
+            <p className="text-gray-400">HTML, CSS, React, Next.js</p>
+          </div>
+
+          <div className="bg-zinc-900 p-6 rounded-2xl">
+            <h3 className="text-xl font-semibold mb-3">Tools</h3>
+            <p className="text-gray-400">GitHub, VS Code, MySQL</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      {/* PROJECTS */}
+      <section className="min-h-screen bg-zinc-950 flex flex-col justify-center px-10">
+
+        <h2 className="text-4xl md:text-5xl font-bold mb-10 text-center">
+          Projects
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+
+          {/* TOURISM */}
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
+
+            <h3 className="text-xl font-semibold mb-3">
+              Tourism Guide
             </h3>
 
-            <p className="text-gray-400 leading-8">
-              Java <br />
-              SQL <br />
-              JavaScript
+            <p className="text-gray-400 mb-4">
+              Explore tourist places and plan trips easily.
             </p>
+
+            <a
+              href="https://github.com/siddu9825/tourism-guide-project"
+              target="_blank"
+              className="text-blue-400"
+            >
+              View Code →
+            </a>
 
           </div>
 
-          <div className="bg-zinc-900 p-8 rounded-3xl">
+          {/* RAINFALL */}
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
 
-            <h3 className="text-2xl font-semibold mb-4">
-              Web Technologies
+            <h3 className="text-xl font-semibold mb-3">
+              Rainfall Prediction
             </h3>
 
-            <p className="text-gray-400 leading-8">
-              HTML <br />
-              CSS <br />
-              React <br />
-              Next.js
+            <p className="text-gray-400 mb-4">
+              ML model using Random Forest to predict rainfall.
             </p>
 
-          </div>
-
-          <div className="bg-zinc-900 p-8 rounded-3xl">
-
-            <h3 className="text-2xl font-semibold mb-4">
-              Tools
-            </h3>
-
-            <p className="text-gray-400 leading-8">
-              VS Code <br />
-              GitHub <br />
-              MySQL
-            </p>
+            <a
+              href="https://github.com/siddu9825/projects"
+              target="_blank"
+              className="text-blue-400"
+            >
+              View Code →
+            </a>
 
           </div>
 
@@ -126,67 +164,28 @@ export default function Home() {
 
       </section>
 
-      {/* EDUCATION SECTION */}
-      <section className="min-h-screen bg-zinc-950 flex items-center justify-center px-10">
+      {/* CONTACT */}
+      <section id="contact" className="min-h-screen flex flex-col justify-center items-center text-center px-10 bg-black">
 
-        <div className="bg-zinc-900 p-10 rounded-3xl text-center max-w-3xl">
-
-          <h2 className="text-5xl font-bold mb-8">
-            Education
-          </h2>
-
-          <h3 className="text-3xl font-semibold mb-4">
-            B.Tech in Computer Science
-          </h3>
-
-          <p className="text-gray-400 text-xl mb-3">
-            Sree Vidyanikethan Engineering College
-          </p>
-
-          <p className="text-gray-500">
-            CGPA: 8.0
-          </p>
-
-        </div>
-
-      </section>
-
-      {/* CONTACT SECTION */}
-      <section
-        id="contact"
-        className="min-h-screen bg-black flex flex-col items-center justify-center px-10 text-center"
-      >
-
-        <h2 className="text-5xl font-bold mb-10">
+        <h2 className="text-4xl md:text-5xl font-bold mb-8">
           Contact Me
         </h2>
 
-        <div className="bg-zinc-900 p-10 rounded-3xl border border-white/10 max-w-2xl w-full">
+        <p className="text-gray-300 mb-3">
+          Email: siddharthsiddharth279@gmail.com
+        </p>
 
-          <div className="space-y-6 text-xl text-gray-300">
+        <p className="text-gray-300 mb-3">
+          Phone: +91 9133228845
+        </p>
 
-            <p>
-              📧 Email:siddharthsiddharth279@gmail.com
-            </p>
-
-            <p>
-              📱 Phone: +91 9133228845
-            </p>
-
-            <p>
-              💼 LinkedIn:
-              <a
-                href="https://www.linkedin.com/in/jaya-siddharth-boya-986882294/"
-                target="_blank"
-                className="text-blue-400 ml-2 hover:underline"
-              >
-                View Profile
-              </a>
-            </p>
-
-          </div>
-
-        </div>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          className="text-blue-400"
+        >
+          LinkedIn Profile →
+        </a>
 
       </section>
 
