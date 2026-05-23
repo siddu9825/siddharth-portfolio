@@ -1,16 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export default function Home() {
 
+  const [activeProject, setActiveProject] = useState(null);
+
   const skills = [
-    { name: "Java", level: 90 },
-    { name: "HTML/CSS", level: 85 },
-    { name: "React", level: 80 },
-    { name: "SQL", level: 75 },
-    { name: "Spring Boot", level: 70 },
+    {
+      name: "Java",
+      items: ["OOPs", "Collections", "Spring Boot", "Basics"]
+    },
+    {
+      name: "React",
+      items: ["Hooks", "Components", "State Management"]
+    },
+    {
+      name: "SQL",
+      items: ["Queries", "Joins", "CRUD Operations"]
+    }
   ];
+
+  const projectDetails = {
+    tourism: `
+Project: Tourism Guide
+
+Approach:
+- Understood user travel requirements
+- Designed UI using React components
+- Built backend using Java + Spring Boot
+- Integrated APIs using REST
+- Focused on scalable structure and clean UI
+    `,
+    rainfall: `
+Project: Rainfall Prediction
+
+Approach:
+- Collected dataset
+- Cleaned and preprocessed data
+- Used Random Forest algorithm
+- Trained ML model
+- Improved accuracy using tuning
+    `
+  };
 
   return (
     <main className="h-screen overflow-y-scroll scroll-smooth snap-y snap-mandatory bg-black text-white">
@@ -18,14 +51,20 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section className="h-screen snap-start flex flex-col md:flex-row items-center justify-between px-6 md:px-20">
 
-        {/* LEFT */}
         <motion.div
           initial={{ opacity: 0, x: -60 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
           className="flex-1"
         >
-          <p className="text-green-400 mb-2">
+
+          {/* OPEN TO WORK BADGE */}
+          <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-400 text-green-400 px-4 py-1 rounded-full mb-4">
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+            Open to Work
+          </div>
+
+          <p className="text-gray-400 mb-2">
             Available for Internship / Full-Time Roles
           </p>
 
@@ -34,14 +73,22 @@ export default function Home() {
           </p>
 
           <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Siddharth Boya
+            JayaSiddharth Boya
           </h1>
 
           <p className="text-gray-300 max-w-xl mb-8 leading-7">
-            Computer Science Engineering student passionate about building scalable real-world applications using Java, React, SQL, and Spring Boot.
+            Computer Science Engineering student focused on building scalable real-world applications using Java, React, SQL, and Spring Boot.
           </p>
 
+          {/* HIRE ME BUTTON */}
           <div className="flex gap-4 flex-wrap">
+            <a
+              className="bg-green-500 text-black px-6 py-3 rounded-full font-semibold hover:opacity-80 transition"
+              href="#contact"
+            >
+              Hire Me
+            </a>
+
             <a
               className="bg-white text-black px-6 py-3 rounded-full font-semibold hover:opacity-80 transition"
               href="/resume.pdf"
@@ -59,14 +106,12 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* RIGHT VIDEO */}
+        {/* VIDEO */}
         <div className="flex-1 flex justify-center mt-10 md:mt-0">
           <video
             className="w-[320px] md:w-[420px] rounded-2xl border border-white/10"
             controls
-             autoPlay
             muted
-          
           >
             <source src="/hero-video.mp4" type="video/mp4" />
           </video>
@@ -82,22 +127,22 @@ export default function Home() {
         <div className="max-w-3xl bg-zinc-900 border border-white/10 rounded-2xl p-8">
 
           <p className="text-gray-300 leading-8 mb-4">
-            I am a Computer Science Engineering student passionate about full-stack development and real-world problem solving.
+            I am a Computer Science student passionate about full-stack development and real-world problem solving.
           </p>
 
           <p className="text-gray-400 leading-7 mb-4">
-            I specialize in Java, React, SQL, and backend systems using Spring Boot. I focus on clean UI, scalable architecture, and performance.
+            I build backend systems using Java & Spring Boot and interactive UIs using React.
           </p>
 
-          <p className="text-gray-500 text-sm">
-            Goal: Become a strong full-stack developer and build impactful software products.
+          <p className="text-green-400 text-sm">
+            Goal: Become a production-level full-stack developer.
           </p>
 
         </div>
 
       </section>
 
-      {/* ================= SKILLS ================= */}
+      {/* ================= SKILLS (UPDATED FORMAT) ================= */}
       <section id="skills" className="h-screen snap-start flex flex-col justify-center px-6 md:px-20">
 
         <h2 className="text-4xl font-bold text-center mb-10">
@@ -107,20 +152,21 @@ export default function Home() {
         <div className="max-w-3xl mx-auto w-full space-y-6">
 
           {skills.map((s, i) => (
-            <div key={i}>
-              <div className="flex justify-between mb-2">
-                <span className="font-medium">{s.name}</span>
-                <span className="text-gray-400">{s.level}%</span>
+            <div key={i} className="bg-zinc-900 p-5 rounded-xl border border-white/10">
+
+              <h3 className="text-xl font-semibold mb-2">{s.name}</h3>
+
+              <div className="flex flex-wrap gap-2">
+                {s.items.map((item, idx) => (
+                  <span
+                    key={idx}
+                    className="text-sm bg-zinc-800 px-3 py-1 rounded-full text-gray-300"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
 
-              <div className="h-3 bg-zinc-800 rounded-full overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${s.level}%` }}
-                  transition={{ duration: 1 }}
-                  className="h-full bg-gradient-to-r from-green-400 to-blue-500"
-                />
-              </div>
             </div>
           ))}
 
@@ -137,41 +183,71 @@ export default function Home() {
         <div className="grid md:grid-cols-2 gap-6">
 
           {/* PROJECT 1 */}
-          <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10 hover:scale-[1.02] transition">
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
 
-            <img
-              src="/project1.png"
-              alt="Project 1"
-              className="rounded-lg mb-4"
-            />
+            <img src="/project1.png" className="rounded-lg mb-4" />
 
             <h3 className="text-xl font-semibold mb-2">Tourism Guide</h3>
-            <p className="text-gray-400">
-              Travel planning system using web technologies
+            <p className="text-gray-400 mb-4">
+              Travel planning system using React + Java backend.
             </p>
+
+            <button
+              onClick={() => setActiveProject("tourism")}
+              className="text-green-400"
+            >
+              How I Built This →
+            </button>
+
           </div>
 
           {/* PROJECT 2 */}
-          <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10 hover:scale-[1.02] transition">
+          <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
 
-            <img
-              src="/project2.png"
-              alt="Project 2"
-              className="rounded-lg mb-4"
-            />
+            <img src="/project2.png" className="rounded-lg mb-4" />
 
             <h3 className="text-xl font-semibold mb-2">Rainfall Prediction</h3>
-            <p className="text-gray-400">
-              Machine learning model using Random Forest
+            <p className="text-gray-400 mb-4">
+              ML model using Random Forest algorithm.
             </p>
+
+            <button
+              onClick={() => setActiveProject("rainfall")}
+              className="text-green-400"
+            >
+              How I Built This →
+            </button>
+
           </div>
 
         </div>
 
       </section>
 
+      {/* ================= MODAL ================= */}
+      {activeProject && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6">
+
+          <div className="bg-zinc-900 max-w-xl w-full p-6 rounded-2xl border border-white/10">
+
+            <pre className="text-gray-300 whitespace-pre-wrap">
+              {projectDetails[activeProject]}
+            </pre>
+
+            <button
+              onClick={() => setActiveProject(null)}
+              className="mt-4 bg-white text-black px-4 py-2 rounded-full"
+            >
+              Close
+            </button>
+
+          </div>
+
+        </div>
+      )}
+
       {/* ================= CONTACT ================= */}
-      <section className="h-screen snap-start flex flex-col justify-center items-center text-center px-6">
+      <section id="contact" className="h-screen snap-start flex flex-col justify-center items-center text-center px-6">
 
         <h2 className="text-4xl font-bold mb-10">Contact</h2>
 
@@ -187,14 +263,9 @@ export default function Home() {
             <span className="text-white">+91 9133228845</span>
           </div>
 
-          <div className="bg-zinc-900 border border-white/10 rounded-xl p-5 flex justify-between">
-            <span className="text-gray-400">LinkedIn</span>
-            <a className="text-blue-400" href="#">Visit Profile →</a>
-          </div>
-
-          <div className="bg-zinc-900 border border-white/10 rounded-xl p-5 flex justify-between">
-            <span className="text-gray-400">GitHub</span>
-            <a className="text-blue-400" href="#">View Projects →</a>
+          <div className="flex justify-center gap-6 mt-6">
+            <a className="text-blue-400" href="#">LinkedIn →</a>
+            <a className="text-blue-400" href="#">GitHub →</a>
           </div>
 
         </div>
