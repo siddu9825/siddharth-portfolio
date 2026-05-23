@@ -64,6 +64,7 @@ export default function Home() {
           <video
             className="w-[320px] md:w-[420px] rounded-2xl border border-white/10"
             controls
+             autoPlay
             muted
           
           >
