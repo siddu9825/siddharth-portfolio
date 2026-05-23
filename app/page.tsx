@@ -15,26 +15,23 @@ export default function Home() {
   ];
 
   const projectDetails: Record<ProjectKey, string> = {
-    tourism: `
-Project: Tourism Guide
+    tourism: `Project: Tourism Guide
 
 Approach:
 - Understood user travel requirements
 - Designed UI using React components
 - Built backend using Java + Spring Boot
 - Integrated REST APIs
-- Focused on clean & scalable architecture
-    `,
-    rainfall: `
-Project: Rainfall Prediction
+- Focused on clean & scalable architecture`,
+
+    rainfall: `Project: Rainfall Prediction
 
 Approach:
 - Collected dataset
 - Cleaned and preprocessed data
 - Used Random Forest algorithm
 - Trained ML model
-- Improved accuracy using tuning
-    `,
+- Improved accuracy using tuning`,
   };
 
   return (
@@ -67,7 +64,7 @@ Approach:
           </h1>
 
           <p className="text-gray-300 max-w-xl mb-8 leading-7">
-            Computer Science Engineering student passionate about building scalable applications.
+            Computer Science student passionate about building scalable applications.
           </p>
 
           <div className="flex gap-4 flex-wrap">
@@ -101,37 +98,30 @@ Approach:
 
       {/* ABOUT */}
       <section className="h-screen snap-start flex flex-col justify-center items-center text-center px-6 bg-zinc-950">
-
         <h2 className="text-4xl font-bold mb-6">About Me</h2>
 
         <div className="max-w-3xl bg-zinc-900 border border-white/10 rounded-2xl p-8">
-
           <p className="text-gray-300 leading-8 mb-4">
-            I am a Computer Science student passionate about full-stack development and real-world applications.
+            I am a Computer Science student passionate about full-stack development.
           </p>
 
           <p className="text-gray-400 leading-7 mb-4">
-            I build web apps using Java, Spring Boot, React, and SQL.
+            I build apps using Java, Spring Boot, React, and SQL.
           </p>
 
           <p className="text-green-400 text-sm">
             Goal: Become a production-level full-stack developer.
           </p>
-
         </div>
-
       </section>
 
       {/* SKILLS */}
       <section className="h-screen snap-start flex flex-col justify-center px-6 md:px-20">
-
         <h2 className="text-4xl font-bold text-center mb-10">Skills</h2>
 
         <div className="max-w-3xl mx-auto w-full space-y-6">
-
           {skills.map((s, i) => (
             <div key={i} className="bg-zinc-900 p-5 rounded-xl border border-white/10">
-
               <h3 className="text-xl font-semibold mb-2">{s.name}</h3>
 
               <div className="flex flex-wrap gap-2">
@@ -144,20 +134,16 @@ Approach:
                   </span>
                 ))}
               </div>
-
             </div>
           ))}
-
         </div>
       </section>
 
       {/* PROJECTS */}
       <section className="h-screen snap-start flex flex-col justify-center px-6 md:px-20 bg-zinc-950">
-
         <h2 className="text-4xl font-bold text-center mb-10">Projects</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-
           <div className="bg-zinc-900 p-6 rounded-2xl border border-white/10">
             <img src="/project1.png" alt="tourism" className="rounded-lg mb-4" />
 
@@ -183,16 +169,13 @@ Approach:
               How I Built This →
             </button>
           </div>
-
         </div>
       </section>
 
       {/* MODAL */}
       {activeProject && (
         <div className="fixed inset-0 bg-black/80 flex items-center justify-center p-6">
-
           <div className="bg-zinc-900 max-w-xl w-full p-6 rounded-2xl border border-white/10">
-
             <pre className="text-gray-300 whitespace-pre-wrap">
               {projectDetails[activeProject]}
             </pre>
@@ -203,19 +186,15 @@ Approach:
             >
               Close
             </button>
-
           </div>
-
         </div>
       )}
 
       {/* CONTACT */}
       <section id="contact" className="h-screen snap-start flex flex-col justify-center items-center text-center px-6">
-
         <h2 className="text-4xl font-bold mb-10">Contact</h2>
 
         <div className="w-full max-w-2xl space-y-5">
-
           <div className="bg-zinc-900 border border-white/10 rounded-xl p-5 flex justify-between">
             <span className="text-gray-400">Email</span>
             <span className="text-white">siddharthsiddharth279@gmail.com</span>
@@ -230,11 +209,9 @@ Approach:
             <a className="text-blue-400" href="#">LinkedIn →</a>
             <a className="text-blue-400" href="#">GitHub →</a>
           </div>
-
         </div>
-
       </section>
 
     </main>
   );
-}
+}pwd
